@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeHouse: 1
   timeClick: 3
-  timeBuilt: 5
+  timeBuilt: 10
   canClick: 0
 --- !u!54 &-1035478085530615905
 Rigidbody:

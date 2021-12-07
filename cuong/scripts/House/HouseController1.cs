@@ -18,7 +18,6 @@ public class HouseController1 : MonoBehaviour
         {
             StartCoroutine(timeBuiltTime());
         }
-        canClick = true;
     }
 
     // Update is called once per frame
@@ -57,15 +56,23 @@ public class HouseController1 : MonoBehaviour
                  canClick = true;
              }
          }*/
-        /* try
-         {
-             Debug.Log("test" + gameObject.GetComponent<HouseMove>().enabled);
-         }
-         catch
-         {
-             Debug.Log("test data false");
-         }
-         StartCoroutine(timeBuiltTime());*/
+        try
+        {
+            Debug.Log("test" + gameObject.GetComponent<HouseMove>().enabled);
+            StartCoroutine(timeBuiltTime());
+        }
+        catch
+        {
+            timeBuilt--;
+            if (timeBuilt != 0)
+            {
+                StartCoroutine(timeBuiltTime());
+            }
+            else
+            {
+                canClick = true;
+            }
+        }
 
 
     }
