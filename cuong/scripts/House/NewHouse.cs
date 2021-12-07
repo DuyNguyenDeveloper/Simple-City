@@ -12,13 +12,14 @@ public class NewHouse : MonoBehaviour
         {
             house = Instantiate(DataController.listContruct[i], new Vector3(mainCamera.transform.position.x, 0, mainCamera.transform.position.z + 10), DataController.listContruct[i].transform.rotation);
             house.name = "house" + (DataController.listContructController.Count);
-            house.GetComponent<HouseMove>().enabled = true;
+
         }
         else
         {
             house.transform.position = new Vector3(mainCamera.transform.position.x, 0, mainCamera.transform.position.z + 10);
-            house.GetComponent<HouseMove>().enabled = true;
+
         }
+        house.GetComponent<HouseMove>().enabled = true;
         Destroy(house.GetComponent<Rigidbody>());
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    public static void SaveListHouse(List<HouseData> lsHouse)
+    public static void SaveListHouse(List<HouseData> lsHouse, GameData gameData)
     {
         if (lsHouse != null)
         {
@@ -13,10 +13,10 @@ public class SaveSystem : MonoBehaviour
             string path = Application.persistentDataPath + "/listHouse.fun";
             FileStream stream = new FileStream(path, FileMode.Create);
             formatter.Serialize(stream, lsHouse);
-            /* foreach (HouseData obj in lsHouse)
-             {
-                 formatter.Serialize(stream, obj);
-             }*/
+
+            path = Application.persistentDataPath + "/gameData.fun";
+            stream = new FileStream(path, FileMode.Create);
+            formatter.Serialize(stream, gameData);
             Debug.Log(path);
             stream.Close();
         }
@@ -35,6 +35,23 @@ public class SaveSystem : MonoBehaviour
         else
         {
             return new List<HouseData>();
+        }
+    }
+
+    public static GameData LoadGameData()
+    {
+        string path = Application.persistentDataPath + "/gameData.fun";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            GameData data = formatter.Deserialize(stream) as GameData;
+            stream.Close();
+            return data;
+        }
+        else
+        {
+            return new GameData();
         }
     }
 }

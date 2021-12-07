@@ -1,20 +1,60 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DataController : MonoBehaviour
 {
+    public static GameData gameData;
+    public GameData gameDataInspector;
 
     public static List<GameObject> listContruct;
-    public List<GameObject> listContructView;
+    public List<GameObject> listContructInspector;
+
     public static List<HouseData> listContructController;
-    public List<HouseData> listContructControllerView;
+    public List<HouseData> listContructControllerInspector;
+
+    public static List<Text> lsViewData;
+    public List<Text> lsViewDataInspector;
     // Start is called before the first frame update
     void Start()
     {
-        listContructController = new List<HouseData>();
         listContructController = SaveSystem.LoadListHouse();
-        listContruct = listContructView;
+        gameData = SaveSystem.LoadGameData();
+
+        listContruct = listContructInspector;
+        lsViewData = lsViewDataInspector;
+
         loadDataHouse();
+        loadDataView();
+
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        listContructControllerInspector = listContructController;
+        gameDataInspector = gameData;
+
+
+    }
+    public static void updateData(int coin, int stone, int iron, int food, int old, int diamon)
+    {
+        gameData.coin += coin;
+        gameData.stone += stone;
+        gameData.iron += iron;
+        gameData.food += food;
+        gameData.oil += old;
+        gameData.diamon += diamon;
+        loadDataView();
+    }
+    public static void loadDataView()
+    {
+        // Debug.Log(gameData.coin);
+        lsViewData[0].text = gameData.coin + "";
+        lsViewData[1].text = gameData.stone + "";
+        lsViewData[2].text = gameData.iron + "";
+        lsViewData[3].text = gameData.food + "";
+        lsViewData[4].text = gameData.oil + "";
+        lsViewData[5].text = gameData.diamon + "";
     }
     private void loadDataHouse()
     {
@@ -36,34 +76,22 @@ public class DataController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        listContructControllerView = listContructController;
 
-    }
     public static void addNewHouse(GameObject newHouse)
     {
-        Debug.Log(newHouse.GetComponent<HouseController1>().typeHouse);
-        Debug.Log(newHouse.transform.position.x);
         HouseData data = new HouseData(newHouse.GetComponent<HouseController1>().typeHouse, newHouse.transform.position);
         listContructController.Add(data);
-        Debug.Log("test data" + listContructController[0].typeHouse);
     }
 
     private void OnApplicationPause(bool pause)
     {
         if (pause)
         {
-            SaveSystem.SaveListHouse(listContructController);
-        }
-        else
-        {
-
+            SaveSystem.SaveListHouse(listContructController, gameData);
         }
     }
     private void OnDestroy()
     {
-        SaveSystem.SaveListHouse(listContructController);
+        SaveSystem.SaveListHouse(listContructController, gameData);
     }
 }
