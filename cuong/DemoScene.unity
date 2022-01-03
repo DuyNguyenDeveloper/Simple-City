@@ -264,7 +264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197240916
 GameObject:
@@ -344,7 +344,7 @@ Transform:
   m_GameObject: {fileID: 197240916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.0001, z: -100}
-  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -683,13 +683,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873891077}
-  m_LocalRotation: {x: 0.040299054, y: -0.25853717, z: 0.2821438, w: 0.9230002}
-  m_LocalPosition: {x: -0.14142156, y: -0.18406177, z: 8.584063}
+  m_LocalRotation: {x: 0.39044836, y: -0.34682897, z: 0.16172901, w: 0.83731925}
+  m_LocalPosition: {x: -0.14142156, y: 3.8000002, z: -104.0603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1487629882}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!1 &1084502001
 GameObject:
@@ -1245,6 +1245,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2142365468}
+        m_TargetAssemblyTypeName: DataController, Assembly-CSharp
+        m_MethodName: checkDataBuy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1328556588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,8 +1456,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 10, z: -110}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 873891079}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
@@ -1763,6 +1774,7 @@ GameObject:
   - component: {fileID: 2142365468}
   - component: {fileID: 2142365471}
   - component: {fileID: 2142365470}
+  - component: {fileID: 2142365472}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1782,8 +1794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf2b027518dc324e84de39daabe8958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameDataInspector:
+    data: 
   listContructInspector:
-  - {fileID: 251205177987603282, guid: 643a49fbc05dc9d4f85c14d3dbee7f37, type: 3}
+  - {fileID: 8160605586190451444, guid: 367bc4268582db447a96990704e5418b, type: 3}
   listContructControllerInspector: []
   lsViewDataInspector:
   - {fileID: 1084502005}
@@ -1792,6 +1806,12 @@ MonoBehaviour:
   - {fileID: 1192275629}
   - {fileID: 2100870687}
   - {fileID: 708857268}
+  lsBtnBuyInspector:
+  - {fileID: 7218812772616817122}
+  - {fileID: 7218812773620876185}
+  - {fileID: 7218812772550044706}
+  - {fileID: 7218812772583664312}
+  - {fileID: 7218812773039708496}
 --- !u!4 &2142365469
 Transform:
   m_ObjectHideFlags: 0
@@ -1805,7 +1825,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2142365470
 MonoBehaviour:
@@ -1832,6 +1852,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad87d8f177f0bc4dbc5d4094f9864cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2142365472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142365467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0601a1e0b29698c45ab848b88cd321de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraGame: {fileID: 1487629879}
+  moveCamera: 0
 --- !u!114 &264053367735690589
 MonoBehaviour:
   m_ObjectHideFlags: 0
