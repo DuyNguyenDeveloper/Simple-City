@@ -112,7 +112,7 @@ public class DataController : MonoBehaviour {
             listContructController[i].timeClickRun = house.GetComponent<HouseController1>().timeClickRun;
         }
     }
-    public void checkDataBuy() {
+    public static void checkDataBuy() {
         for (int j = 0; j < listContruct.Count; j++) {
             Debug.Log(listContruct.Count);
             for (int i = 0; i < gameData.data.Length; i++) {

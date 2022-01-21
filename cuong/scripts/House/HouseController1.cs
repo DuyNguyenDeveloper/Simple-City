@@ -58,7 +58,7 @@ public class HouseController1 : MonoBehaviour {
             } else {
                 StartCoroutine(houseClickWait());
                 gameObject.GetComponent<MeshRenderer>().enabled = true;
-                Destroy(gameObject.transform.GetChild(1).gameObject);
+                Destroy(gameObject.transform.GetChild(0).gameObject);
             }
         }
 

@@ -32,6 +32,7 @@ public class HouseMove : MonoBehaviour {
                     Destroy(gameObject.GetComponent<Rigidbody>());
                     Destroy(gameObject.transform.GetChild(0).gameObject);
                     DataController.addNewHouse(gameObject);
+                    DataController.checkDataBuy();
                 } else if (hit.collider.gameObject.name.Equals("CancelAddHouse")) {
                     Destroy(gameObject);
                 } else {
